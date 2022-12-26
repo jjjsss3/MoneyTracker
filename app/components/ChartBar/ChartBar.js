@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Dimensions, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { BarChart } from 'react-native-chart-kit';
+import { Dimensions, Text, View } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import { colors } from '~/styles';
 import styles from '~/styles/AppStyles';
-import { borderRadius, doubleIndent } from '~/styles/dimensions';
-import { BarChart } from 'react-native-chart-kit';
-import date from '~/constants/dateFormat';
 import { formatCurrency } from '~/utils/format';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { doubleIndent } from '~/styles/dimensions';
 
 function ChartBar() {
    const general = useSelector((state) => state.general);

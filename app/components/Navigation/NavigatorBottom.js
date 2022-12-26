@@ -1,45 +1,26 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { Alert, Modal, StyleSheet, Text, Pressable, View, ScrollView } from 'react-native';
-
 import { useSelector, useDispatch } from 'react-redux';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '~/screens/Home';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { colors } from '~/styles';
-import styles from '~/styles/AppStyles';
-import BottomSheet, { BottomSheetView, BottomSheetFooter } from '@gorhom/bottom-sheet';
 
-import StackHome from './StackHome';
-import BottomSheetAddTransaction from '~/components/BottomSheet/AddTransaction';
-import { updateShowAddTransactions } from '~/redux/generalSlice';
-import ConfirmAction from '~/components/BottomSheet/ConfirmAction';
+import { colors } from '~/styles';
+import HomeScreen from '~/screens/Home';
+import styles from '~/styles/AppStyles';
 import { TITLE, ICON } from '~/constants/navigator';
+import { updateAddTransActionShow } from '~/redux/generalSlice';
 
 const Tab = createBottomTabNavigator();
-export default function Navigator() {
+export default function NavigatorBottom() {
    const general = useSelector((state) => state.general);
-   const sheetRef = useRef();
    const dispatch = useDispatch();
    const GetNull = () => {
       return null;
    };
-   const snapPoints = useMemo(() => ['70%', '90%'], []);
-
-   const handleSnapPress = useCallback((index) => {
-      sheetRef.current?.snapToIndex(index);
-      dispatch(updateShowAddTransactions({ show: true }));
-   }, []);
-   const renderFooter = useCallback(
-      (props) => (
-         <BottomSheetFooter {...props} bottomInset={0}>
-            <ConfirmAction />
-         </BottomSheetFooter>
-      ),
-      [],
-   );
+   const openAddTransaction = () => {
+      dispatch(updateAddTransActionShow({ show: !general.addTransaction.actionShow ? true : false }));
+   };
    return (
-      <NavigationContainer>
+      <NavigationContainer independent={true}>
          <Tab.Navigator
             screenOptions={({ route }) => ({
                tabBarActiveTintColor: colors.primary,
@@ -49,7 +30,7 @@ export default function Navigator() {
          >
             <Tab.Screen
                name={TITLE[general.language].home}
-               component={StackHome}
+               component={HomeScreen}
                options={{
                   tabBarLabel: TITLE[general.language].home,
                   tabBarIcon: ({ focused, color, size }) => {
@@ -79,7 +60,7 @@ export default function Navigator() {
                   tabPress: (e) => {
                      e.preventDefault(); // Prevents navigation
                      // Your code here for when you press the tab
-                     handleSnapPress(0);
+                     openAddTransaction();
                   },
                })}
                options={({ navigation, route }) => ({
@@ -101,6 +82,7 @@ export default function Navigator() {
                   ),
                })}
             />
+
             <Tab.Screen
                name={TITLE[general.language].plan}
                component={HomeScreen}
@@ -126,20 +108,6 @@ export default function Navigator() {
                }}
             />
          </Tab.Navigator>
-         <BottomSheet
-            ref={sheetRef}
-            index={-1}
-            snapPoints={snapPoints}
-            enablePanDownToClose
-            onClose={() => {
-               dispatch(updateShowAddTransactions({ show: false }));
-            }}
-            initialSnap={1}
-            footerComponent={renderFooter}
-            // handleComponent={renderFooter}
-         >
-            <BottomSheetAddTransaction />
-         </BottomSheet>
       </NavigationContainer>
    );
 }

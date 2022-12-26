@@ -1,10 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { Text, View, TouchableOpacity, Button } from 'react-native';
-
+import { Text, View, TouchableOpacity } from 'react-native';
 import styles from '~/styles/AppStyles';
-import { CONFIRM } from '~/constants/general';
+import { useSelector, useDispatch } from 'react-redux';
 import { updateAddTransActionShow, updateAddTransShow } from '~/redux/generalSlice';
-function ConfirmAction({ navigation }) {
+import { CONFIRM } from '~/constants/general';
+function ConfirmAction1({ navigation }) {
    const dispatch = useDispatch();
    const general = useSelector((state) => state.general);
    const handleOnPressCancel = () => {
@@ -12,7 +11,7 @@ function ConfirmAction({ navigation }) {
    };
    return (
       <View style={[styles.containerStyle, styles.blockStyle]}>
-         <Button title="Go to 1" onPress={() => navigation.navigate('ConfirmAction1')} />
+         <Text>1</Text>
          <View style={[styles.inlineStyle, styles.withVerticalPadding]}>
             <TouchableOpacity
                style={[
@@ -44,4 +43,4 @@ function ConfirmAction({ navigation }) {
    );
 }
 
-export default ConfirmAction;
+export default ConfirmAction1;

@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
-import styles from '~/styles/AppStyles';
+import Tooltip from 'rn-tooltip';
 import { useSelector, useDispatch } from 'react-redux';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Text, View, TouchableOpacity } from 'react-native';
+
+import { colors } from '~/styles';
+import styles from '~/styles/AppStyles';
 import { formatCurrency } from '~/utils/format';
 import { hideBalance } from '~/redux/generalSlice';
-
-import Tooltip from 'rn-tooltip';
-import { colors } from '~/styles';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function HomeScreenHeader() {
    const account = useSelector((state) => state.account);

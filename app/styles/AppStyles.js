@@ -16,8 +16,9 @@ const styles = StyleSheet.create({
       paddingLeft: indent,
       paddingRight: indent,
    },
-   formInputStyle: {
+   textInputStyle: {
       color: colors.primaryText,
+      flex: 1,
    },
    headerIconStyle: {
       fontSize: 30,
@@ -166,6 +167,13 @@ const styles = StyleSheet.create({
       shadowOpacity: 0.3,
       shadowRadius: 1,
       elevation: 5,
+   },
+   withShadowThick: {
+      shadowColor: colors.black,
+      shadowOffset: { width: 0, height: -1 },
+      shadowOpacity: 0.3,
+      shadowRadius: 10,
+      elevation: 12,
    },
    withColorWhite: {
       color: colors.white,

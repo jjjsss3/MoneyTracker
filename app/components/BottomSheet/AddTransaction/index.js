@@ -1,2 +1,2 @@
-import BottomSheetAddTransaction from './BottomSheetAddTransaction';
-export default BottomSheetAddTransaction;
+import AddTransaction from './AddTransaction';
+export default AddTransaction;

@@ -1,12 +1,14 @@
 export default {
    vnd: {
-      name: '₫ - VN Đồng',
+      name: 'Việt Nam Đồng',
       sign: '₫',
+      icon: require('~/assets/icons/currencies/vnd.png'),
       unitReport: 'M',
    },
    dollar: {
-      name: '$ - US Dollar',
+      name: 'US Dollar',
       sign: '$',
+      icon: require('~/assets/icons/currencies/usd.png'),
       unitReport: 'k',
    },
    euro: {

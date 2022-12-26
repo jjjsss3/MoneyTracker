@@ -1,18 +1,21 @@
-import { StatusBar, StyleSheet, Text, View, SafeAreaView, Platform } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { StatusBar, SafeAreaView } from 'react-native';
 import { Provider } from 'react-redux';
 import 'react-native-gesture-handler';
-
 import { lifecycle } from 'recompose';
-import store from '~/redux/store';
-import styles from '~/styles/AppStyles';
-import colors from '~/styles/colors';
+
+import * as Font from 'expo-font';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
-import Navigator from '~/navigation/Navigator';
-import React, { useCallback, useEffect, useState } from 'react';
 import Entypo from '@expo/vector-icons/Entypo';
 import * as SplashScreen from 'expo-splash-screen';
-import * as Font from 'expo-font';
+
+import store from '~/redux/store';
+import colors from '~/styles/colors';
+import styles from '~/styles/AppStyles';
+import Navigator from '~/components/Navigation';
+
 SplashScreen.preventAutoHideAsync();
 
 const STYLES = ['default', 'dark-content', 'light-content'];
@@ -66,19 +69,21 @@ const App = () => {
       return <AppLoading />;
    } else {
       return (
-         <SafeAreaView style={[styles.rootStyle]} onLayout={onLayoutRootView}>
-            <StatusBar
-               status="auto"
-               animated={true}
-               barStyle={statusBarStyle}
-               showHideTransition={statusBarTransition}
-               backgroundColor={colors.grey}
-               hidden={hidden}
-            />
-            <Provider store={store}>
-               <Navigator />
-            </Provider>
-         </SafeAreaView>
+         <GestureHandlerRootView style={{ flex: 1 }}>
+            <SafeAreaView style={[styles.rootStyle]} onLayout={onLayoutRootView}>
+               <StatusBar
+                  status="auto"
+                  animated={true}
+                  barStyle={statusBarStyle}
+                  showHideTransition={statusBarTransition}
+                  backgroundColor={colors.grey}
+                  hidden={hidden}
+               />
+               <Provider store={store}>
+                  <Navigator />
+               </Provider>
+            </SafeAreaView>
+         </GestureHandlerRootView>
       );
    }
 };

@@ -20,7 +20,10 @@ export const generalSlice = createSlice({
       language: 'vi',
       currency: currencies.vnd,
       hiddenBalance: false,
-      showAddTransactions: false,
+      addTransaction: {
+         show: false,
+         actionShow: false,
+      },
    },
    reducers: {
       updateTypeFilter: (state, action) => {
@@ -35,11 +38,20 @@ export const generalSlice = createSlice({
       hideBalance: (state, action) => {
          state.hiddenBalance = action.payload.hiddenBalance;
       },
-      updateShowAddTransactions: (state, action) => {
-         state.showAddTransactions = action.payload.show;
+      updateAddTransShow: (state, action) => {
+         state.addTransaction.show = action.payload.show;
+      },
+      updateAddTransActionShow: (state, action) => {
+         state.addTransaction.actionShow = action.payload.show;
       },
    },
 });
-export const { updateTypeFilter, updateLanguage, updateDataFilter, hideBalance, updateShowAddTransactions } =
-   generalSlice.actions;
+export const {
+   updateTypeFilter,
+   updateLanguage,
+   updateDataFilter,
+   hideBalance,
+   updateAddTransShow,
+   updateAddTransActionShow,
+} = generalSlice.actions;
 export default generalSlice.reducer;

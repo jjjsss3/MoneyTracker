@@ -1,18 +1,15 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Text, View, ScrollView, Image } from 'react-native';
-import styles from '~/styles/AppStyles';
-import { useSelector, useDispatch } from 'react-redux';
-import { formatCurrency } from '~/utils/format';
-import { hideBalance } from '~/redux/accountSlice';
-import ChartBar from '~/components/ChartBar';
-import SelectTypeFilter from '~/components/SelectTypeFilter';
+
 import HomeScreenHeader from './HomeScreenHeader';
 import HomeScreenTitle from './HomeScreenTitle';
-import HomeScreenDetailBox from './HomeScreenDetailBox';
 import HomeScreenChart from './HomeScreenChart';
 import HomeScreenRecentTransaction from './HomeScreenRecentTransaction';
+
 import HomeScreenWallet from './HomeScreenWallet';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import styles from '~/styles/AppStyles';
 import { colors } from '~/styles';
 
 export default function HomeScreen() {

@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
-import styles from '~/styles/AppStyles';
 import { useSelector, useDispatch } from 'react-redux';
+import { Text, View, TouchableOpacity } from 'react-native';
+
 import { colors } from '~/styles';
-import { updateTypeFilter, updateDataFilter } from '~/redux/generalSlice';
+import styles from '~/styles/AppStyles';
 import date from '~/constants/dateFormat';
+import { updateTypeFilter, updateDataFilter } from '~/redux/generalSlice';
 function SelectTypeFilter() {
    const dispatch = useDispatch();
    const general = useSelector((state) => state.general);

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, Image } from 'react-native';
+import { View } from 'react-native';
 import styles from '~/styles/AppStyles';
 import { useSelector } from 'react-redux';
 

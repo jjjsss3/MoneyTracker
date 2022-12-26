@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Text, View, Image } from 'react-native';
-import styles from '~/styles/AppStyles';
 import { useSelector } from 'react-redux';
+import { Text, View, Image } from 'react-native';
+
+import styles from '~/styles/AppStyles';
 import { formatCurrency } from '~/utils/format';
 
 export default function HomeScreenDetailBox({
