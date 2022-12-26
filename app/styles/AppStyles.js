@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 import colors from './colors';
 import { indent, doubleIndent, headerHeight, halfIndent, headerMaxHeight } from './dimensions';
 
@@ -7,10 +7,7 @@ const styles = StyleSheet.create({
       backgroundColor: colors.white,
       borderRadius: 10,
       paddingHorizontal: 20,
-      paddingVertical: 5,
-   },
-   boxStyle: {
-      paddingVertical: 15,
+      // paddingVertical: 5,
    },
    caretStyle: {
       color: colors.white,
@@ -55,6 +52,11 @@ const styles = StyleSheet.create({
       paddingVertical: 5,
    },
    mediumTextStyle: {
+      fontSize: 26,
+      fontFamily: 'Roboto-Medium',
+      color: colors.primary,
+   },
+   regularBoldTextStyle: {
       fontSize: 20,
       fontFamily: 'Roboto-Bold',
       color: colors.primary,
@@ -74,8 +76,17 @@ const styles = StyleSheet.create({
       fontFamily: 'Roboto-Regular',
       color: colors.secondaryText,
    },
+   tinyTextStyle: {
+      fontSize: 16,
+      fontFamily: 'Roboto-Regular',
+      color: colors.secondaryText,
+   },
    iconStyle: {
       fontSize: 24,
+      color: colors.primary,
+   },
+   smallIconStyle: {
+      fontSize: 16,
       color: colors.primary,
    },
    iconImageStyle: {
@@ -87,6 +98,10 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: colors.grey,
    },
+   barChartStyle: {
+      // color: colors.white,
+      // alignSelf: 'center',
+   },
    rowStyle: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -96,6 +111,9 @@ const styles = StyleSheet.create({
    },
    withMarginTop: {
       marginTop: indent,
+   },
+   withMarginTopHalf: {
+      marginTop: halfIndent / 2,
    },
    withMarginLeft: {
       marginLeft: halfIndent,
@@ -107,8 +125,17 @@ const styles = StyleSheet.create({
       marginLeft: 0,
    },
    withVerticalMargin: {
-      marginTop: indent,
-      marginBottom: indent,
+      marginVertical: indent,
+   },
+   withHorizontalMargin: {
+      marginHorizontal: indent,
+   },
+   withHorizontalMarginHalf: {
+      marginHorizontal: halfIndent,
+   },
+   withVerticalMarginHalfOfHalf: {
+      marginTop: halfIndent / 2,
+      marginBottom: halfIndent / 2,
    },
    withVerticalPadding: {
       paddingTop: indent,
@@ -120,6 +147,60 @@ const styles = StyleSheet.create({
    },
    withColorSecondary: {
       color: colors.secondaryText,
+   },
+   typeFilterStyle: {
+      flex: 1,
+      alignItems: 'center',
+      paddingVertical: 8,
+   },
+   typeFilterSelectedStyle: {
+      backgroundColor: colors.white,
+      borderRadius: 5,
+   },
+   typeFilterNoSelectedStyle: {
+      backgroundColor: colors.greyLighter,
+   },
+   withShadow: {
+      shadowColor: colors.black,
+      shadowOffset: { width: 0, height: 1 },
+      shadowOpacity: 0.3,
+      shadowRadius: 1,
+      elevation: 5,
+   },
+   withColorWhite: {
+      color: colors.white,
+   },
+   withColorBlack: {
+      color: colors.black,
+   },
+   withColorSuccess: {
+      color: colors.green,
+   },
+   withColorWarning: {
+      color: colors.yellow,
+   },
+   withColorError: {
+      color: colors.red,
+   },
+   withBackGroundColorSuccess: {
+      backgroundColor: colors.green,
+   },
+   withBackGroundColorPrimary: {
+      backgroundColor: colors.primary,
+   },
+   withBackGroundColorGray: {
+      backgroundColor: colors.grey,
+   },
+   withBorderRadius: {
+      borderRadius: 5,
+   },
+   withAbsolutePosition: {
+      position: 'absolute',
+   },
+   buttonTextStyle: {
+      borderRadius: 10,
+      flex: 1,
+      alignItems: 'center',
    },
 });
 

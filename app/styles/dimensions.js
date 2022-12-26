@@ -23,6 +23,6 @@ export const headerMinHeight = Platform.OS === 'ios' ? verticalScale(110) : vert
 
 export const containerWidth = Dimensions.get('window').width - indent * 2;
 
-export const appBarHeight = Platform.OS === 'ios' ? 56 : 48;
+export const appBarHeight = Platform.OS === 'ios' ? 60 : 52;
 export const statusBarHeight = Platform.OS === 'ios' ? 20 : 28;
 export const headerHeight = appBarHeight + statusBarHeight;

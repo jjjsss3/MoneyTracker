@@ -1,5 +1,7 @@
 import { StatusBar, StyleSheet, Text, View, SafeAreaView, Platform } from 'react-native';
 import { Provider } from 'react-redux';
+import 'react-native-gesture-handler';
+
 import { lifecycle } from 'recompose';
 import store from '~/redux/store';
 import styles from '~/styles/AppStyles';
@@ -22,11 +24,11 @@ const App = () => {
    const [statusBarStyle, setStatusBarStyle] = useState(STYLES[1]);
    const [statusBarTransition, setStatusBarTransition] = useState(TRANSITIONS[0]);
    const [fontsLoaded] = useFonts({
-      'Roboto-Bold': require('./src/assets/fonts/Roboto/Roboto-Bold.ttf'),
-      'Roboto-Medium': require('./src/assets/fonts/Roboto/Roboto-Medium.ttf'),
-      'Roboto-Regular': require('./src/assets/fonts/Roboto/Roboto-Regular.ttf'),
-      'Roboto-Light': require('./src/assets/fonts/Roboto/Roboto-Light.ttf'),
-      'Roboto-Italic': require('./src/assets/fonts/Roboto/Roboto-Italic.ttf'),
+      'Roboto-Bold': require('~/assets/fonts/Roboto/Roboto-Bold.ttf'),
+      'Roboto-Medium': require('~/assets/fonts/Roboto/Roboto-Medium.ttf'),
+      'Roboto-Regular': require('~/assets/fonts/Roboto/Roboto-Regular.ttf'),
+      'Roboto-Light': require('~/assets/fonts/Roboto/Roboto-Light.ttf'),
+      'Roboto-Italic': require('~/assets/fonts/Roboto/Roboto-Italic.ttf'),
    });
    useEffect(() => {
       async function prepare() {

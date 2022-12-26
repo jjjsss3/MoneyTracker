@@ -9,7 +9,7 @@ export const accountSlice = createSlice({
       lastName: null,
       dob: null,
       phone: null,
-      total: 42500000,
+      total: 92342500000,
       currency: currencies.vnd,
       hiddenBalance: false,
    },

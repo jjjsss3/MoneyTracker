@@ -2,17 +2,16 @@ export default {
    vnd: {
       name: '₫ - VN Đồng',
       sign: '₫',
+      unitReport: 'M',
    },
    dollar: {
       name: '$ - US Dollar',
       sign: '$',
+      unitReport: 'k',
    },
    euro: {
       name: '€ - Euro',
       sign: '€',
-   },
-   hryvnia: {
-      name: '₴ - Hryvnia',
-      sign: '₴',
+      unitReport: 'k',
    },
 };
